@@ -6,12 +6,16 @@ pipeline {
         IMAGE_TAG = "latest"
         NAMESPACE = "group1-team6"
         
-        JAVA_HOME = '/tmp/jdk-21.0.5/bin/java'  // 원하는 JDK 경로로 수정
-        PATH='/tmp/jdk-21.0.5/bin:${env.PATH}'
+        // JAVA_HOME = '/tmp/jdk-21.0.5/bin/java'  // 원하는 JDK 경로로 수정
+        // PATH='/tmp/jdk-21.0.5/bin:${env.PATH}'
+        JAVA_HOME='/usr/local/java21'
+        PATH='${JAVA_HOME}/bin:{PATH}'
     }
     stages {
         stage('Checkout') {
             steps {
+                 sh 'mvn --version'
+                 sh 'java --version'
                 // Git 저장소에서 소스 코드 체크아웃 (branch 지정 : 본인 repository의 branch 이름으로 설정)
                 git branch: 'main', url: 'https://github.com/chayeonhee/test.git'
             }
@@ -19,8 +23,7 @@ pipeline {
         stage('Build with Maven') {
             steps {
                 script {
-                    sh 'mvn --version'
-                    sh 'java --version'
+                   
                     sh 'mvn clean package -DskipTests'
                 }
             }
