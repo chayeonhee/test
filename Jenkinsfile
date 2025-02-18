@@ -6,8 +6,8 @@ pipeline {
         IMAGE_TAG = "latest"
         NAMESPACE = "group1-team6"
         
-        JAVA_HOME = '/home/eva/user/yoon/edu/jdk-21.0.5/bin/java'  // 원하는 JDK 경로로 수정
-        PATH='/home/eva/user/yoon/edu/jdk-21.0.5/bin:${env.PATH}'
+        JAVA_HOME = '/tmp/jdk-21.0.5/bin/java'  // 원하는 JDK 경로로 수정
+        PATH='/tmp/jdk-21.0.5/bin:${env.PATH}'
     }
     stages {
         stage('Checkout') {
