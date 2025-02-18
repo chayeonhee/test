@@ -11,12 +11,12 @@ pipeline {
         PATH='${JAVA_HOME}/bin:{PATH}'
     }
     stages {
-        stage('Checkout') {
-            steps {
-                // Git 저장소에서 소스 코드 체크아웃 (branch 지정 : 본인 repository의 branch 이름으로 설정)
-                git branch: 'main', url: 'https://github.com/chayeonhee/test.git'
-            }
-        }
+        // stage('Checkout') {
+        //     steps {
+        //         // Git 저장소에서 소스 코드 체크아웃 (branch 지정 : 본인 repository의 branch 이름으로 설정)
+        //         git branch: 'main', url: 'https://github.com/chayeonhee/test.git'
+        //     }
+        // }
         // stage('Build with Maven') {
         //     steps {
         //         script {                
@@ -24,6 +24,14 @@ pipeline {
         //         }
         //     }
         // }
+        stage('Checkout') {
+            steps {
+                sh 'java -version'
+                sh 'mvn -version'
+                // Git 저장소에서 소스 코드 체크아웃 (branch 지정 : 본인 repository의 branch 이름으로 설정)
+                git branch: 'main', url: 'https://github.com/chayeonhee/test.git'
+            }
+        }
         stage('Build with Maven') {
             steps {
                 script {
