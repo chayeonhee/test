@@ -3,7 +3,7 @@ pipeline {
     environment {
         REGISTRY = "k8s-vga-worker1:5000"
         IMAGE_NAME = "group1-team6-cha5"
-        IMAGE_TAG = "v0.9"
+        IMAGE_TAG = "v1.0"
         NAMESPACE = "group1-team6"
         // JAVA_HOME = '/tmp/jdk-21.0.5/bin/java'  // 원하는 JDK 경로로 수정
         // PATH='/tmp/jdk-21.0.5/bin:${env.PATH}'
