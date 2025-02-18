@@ -6,7 +6,7 @@ RUN  mkdir -p /app
 WORKDIR /app
 
 # 3. JAR 파일을 컨테이너로 복사
-COPY target\*.jar app.jar
+COPY target/*.jar app.jar
 
 # 외부노출 포트설정
 # deploy, service의 targetport
