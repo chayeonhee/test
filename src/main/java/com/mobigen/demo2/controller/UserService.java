@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.mobigen.demo2.entity.User;
 import com.mobigen.demo2.repository.*;
@@ -26,4 +27,10 @@ public class UserService {
      public Optional<User> findById(@PathVariable Integer id) {
 		return userRepository.findById(id);
 	}
+    public User save(@PathVariable Integer id, @RequestParam String name, @RequestParam String email) {
+		Optional<User> user = userRepository.findById(id);
+		user.get().setName(name);
+		user.get().setEmail(email);
+		return userRepository.save(user.get());
+    }
 }
