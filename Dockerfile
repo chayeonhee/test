@@ -10,7 +10,6 @@ COPY target/*.jar app.jar
 
 # 외부노출 포트설정
 # deploy, service의 targetport
-# EXPOSE 8182
-
+# # EXPOSE 8182
 # 4. 실행 명령
 CMD ["java", "-jar", "app.jar"]
