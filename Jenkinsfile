@@ -5,6 +5,9 @@ pipeline {
         IMAGE_NAME = "group1-team6-cha5"
         IMAGE_TAG = "latest"
         NAMESPACE = "group1-team6"
+        
+        JAVA_HOME = '/home/eva/user/yoon/edu/jdk-21.0.5/bin/java'  // 원하는 JDK 경로로 수정
+
     }
     stages {
         stage('Checkout') {
@@ -52,7 +55,7 @@ pipeline {
                 script {
                     // Kubenetes에서 특정 Deployment의 컨테이너 이미지를 업데이트 (아래 이름은 중복되지 않게 주의하여 지정, deployment, selector 이름으로)
                     // sh "kubectl set image deployment/demo-app-team5-jhk-deployment demo-app-team5-jhk=${REGISTRY}/${IMAGE_NAME}:${IMAGE_TAG} --namespace=${NAMESPACE}"
-                    sh "kubectl set image deployment/group1-team6-cha-dep group1-team6-contain=${REGISTRY}/${IMAGE_NAME}:${IMAGE_TAG} --namespace=${NAMESPACE}"
+                    sh "kubectl set image deployment/springboot-cha team6-springboot-cha-sv=${REGISTRY}/${IMAGE_NAME}:${IMAGE_TAG} --namespace=${NAMESPACE}"
                 }
             }
         }

@@ -39,10 +39,7 @@ public class UserController {
 		return userService.findById(id);
 	}
         //id로 테이블 값 수정
-	@PutMapping(value = "/{id}")
-	public User update(@PathVariable Integer id, @RequestParam String name, @RequestParam String email) {
-		userService.save(id,name, email);
-	}
+	
     
     // @PostMapping
     // public ResponseEntity<User> createUser(@RequestBody User user) {
